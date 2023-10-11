@@ -1,0 +1,31 @@
+name: clean_reso_coder_implementation
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  get_it: ^7.6.4
+  bloc: 
+  flutter_bloc: 
+  equatable:
+  dartz:
+  http:
+  shared_preferences:
+  internet_connection_checker: 
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
