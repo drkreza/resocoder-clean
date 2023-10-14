@@ -3,6 +3,7 @@ import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentatio
 import 'package:clean_reso_coder_implementation/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 class AnotherPage extends StatelessWidget {
   AnotherPage({super.key});
@@ -12,6 +13,10 @@ class AnotherPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('title'.tr),
+        leading: const BackButton(color: Colors.black),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -32,8 +37,8 @@ class AnotherPage extends StatelessWidget {
                   return Text("${state.trivia.text}  ${state.trivia.number}");
                 } else if (state is NumberTriviaError) {
                   return const Text(' error');
-                }else{
-                   return const Text(' none of above');
+                } else {
+                  return const Text(' none of above');
                 }
               },
             ),

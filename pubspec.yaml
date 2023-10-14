@@ -19,6 +19,7 @@ dependencies:
   http:
   shared_preferences:
   internet_connection_checker: 
+  get: 
 
 dev_dependencies:
   flutter_test:

@@ -3,12 +3,12 @@ import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentatio
 import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/blocs/cubit/number_trivia_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../../injection_container.dart';
 
 class TriviaControls extends StatefulWidget {
-
   TriviaControls({super.key});
 
   @override
@@ -54,10 +54,11 @@ class _TriviaControlsState extends State<TriviaControls> {
             const SizedBox(width: 10),
             Expanded(
               child: ElevatedButton(
-                onPressed: (){
-                  bloc.getTriviaForRandomNumber();
+                onPressed: () {
+                  // bloc.getTriviaForRandomNumber();
+                  changeLocale();
                 },
-                child: const Text('Get random trivia'),
+                child: Text('hi'.tr),
               ),
             ),
           ],
@@ -76,5 +77,9 @@ class _TriviaControlsState extends State<TriviaControls> {
     controller.clear();
     // BlocProvider.of<NumberTriviaBloc>(context).add(GetTriviaForRandomNumber());
     bloc.getTriviaForRandomNumber();
+  }
+
+  void changeLocale() {
+    Get.updateLocale(const Locale('en'));
   }
 }
