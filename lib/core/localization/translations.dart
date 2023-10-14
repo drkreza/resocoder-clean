@@ -6,10 +6,12 @@ class MyTranslations extends Translations {
         'en_US': {
           "hi": "hello",
           "title": "test",
+          "desc":"this is a test text"
         },
         'fa_IR': {
           "hi": "سلام",
           "title": "تست",
+           "desc":"این یک متن تستی است"
         }
       };
 }

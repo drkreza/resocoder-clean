@@ -1,4 +1,5 @@
 import 'package:clean_reso_coder_implementation/core/localization/translations.dart';
+import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/blocs/theme/theme_cubit.dart';
 import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/pages/another_page.dart';
 import 'package:clean_reso_coder_implementation/test/my_widget.dart';
 import 'package:flutter/material.dart';
@@ -29,3 +30,21 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+/* class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => ThemeCubit(),
+      child: BlocBuilder<ThemeCubit, ThemeData>(
+        builder: (context, theme) {
+          return MaterialApp(
+            theme: theme,
+            home: MyHomePage(),
+          );
+        },
+      ),
+    );
+  }
+} */

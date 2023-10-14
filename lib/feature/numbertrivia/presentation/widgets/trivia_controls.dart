@@ -1,6 +1,7 @@
 import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/blocs/cubit/number_trivia_bloc.dart';
 import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/blocs/cubit/number_trivia_cubit.dart';
 import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/blocs/cubit/number_trivia_event.dart';
+import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/pages/third_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -47,7 +48,9 @@ class _TriviaControlsState extends State<TriviaControls> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent),
-                onPressed: dispatchConcrete,
+                onPressed: (){
+                  Get.to(ThirdScreen());
+                },
                 child: const Text('Search'),
               ),
             ),
