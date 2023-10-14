@@ -5,13 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class ThirdScreen extends StatelessWidget {
-  ThirdScreen({super.key});
-
- 
+  const ThirdScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-     final themeBloc = sl<ThemeCubit>();
     return Scaffold(
       appBar: AppBar(
         title: Text('desc'.tr),
@@ -19,8 +16,7 @@ class ThirdScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
             onPressed: () {
-              themeBloc.toggleTheme();
-              // context.read<ThemeCubit>().toggleTheme();
+              context.read<ThemeCubit>().toggleTheme();
             },
             child: const Text('change theme ')),
       ),

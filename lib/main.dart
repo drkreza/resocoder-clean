@@ -3,6 +3,7 @@ import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentatio
 import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/pages/another_page.dart';
 import 'package:clean_reso_coder_implementation/test/my_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 import 'feature/numbertrivia/presentation/pages/number_trivia_page.dart';
@@ -19,14 +20,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      translations: MyTranslations(),
-      locale: const Locale('fa', 'IR'),
-      fallbackLocale: const Locale('en', 'US'),
-      title: 'Number Trivia',
-      // home: NumberTriviaPage(),
-      // home: MyWidget(),
-      home: AnotherPage(),
+    return BlocProvider(
+      create: (context) => ThemeCubit(),
+      child: BlocBuilder<ThemeCubit, ThemeData>(
+        builder: (context, state) {
+          return GetMaterialApp(
+            translations: MyTranslations(),
+            locale: const Locale('fa', 'IR'),
+            fallbackLocale: const Locale('en', 'US'),
+            title: 'Number Trivia',
+            theme: state,
+            // home: NumberTriviaPage(),
+            // home: MyWidget(),
+            home: AnotherPage(),
+          );
+        },
+      ),
     );
   }
 }
