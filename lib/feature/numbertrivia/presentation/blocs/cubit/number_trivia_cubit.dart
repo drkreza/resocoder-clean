@@ -27,19 +27,13 @@ class NumberTriviaCubit extends Cubit<NumberTriviaState> {
     Either<Failure, int> inputEither =
         inputConverter.stringsToUnsignedInteger(number);
 
-    print("B1");
     inputEither.fold((failure) {
-      print("B2");
       emit(const NumberTriviaError(message: INVALID_INPUT_FAILURE_MESSAGE));
     }, (integer) async {
-      print("B3");
       final failureOrTrivia = await concrete.call(Params(number: integer));
-      print("B4");
       failureOrTrivia.fold((failure) {
-        print("B5 : " + failure.toString());
         emit(const NumberTriviaError(message: SERVER_FAILURE_MESSAGE));
       }, (trivia) {
-        print("B6");
         emit(NumberTriviaLoaded(trivia: trivia));
       });
     });
@@ -55,16 +49,11 @@ class NumberTriviaCubit extends Cubit<NumberTriviaState> {
     print("4"); */
      emit(const NumberTriviaLoading());
     final failureOrTrivia = await random.call(NoParams());
-     print("3");
     failureOrTrivia.fold(
       (failure) {
-       print("3.1");
       emit(const NumberTriviaError(message: SERVER_FAILURE_MESSAGE));
-       print("4");
     },(trivia) {
-       print("5  : "+trivia.toString());
       emit(NumberTriviaLoaded(trivia: trivia));
-      print("5.2");
     }); 
   }
 

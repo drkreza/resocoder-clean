@@ -36,7 +36,13 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
       final randomTrivia = await remoteDataSource.getRandomNumberTrivia();
       return Right(randomTrivia);
     } on ServerException {
+      print("ServerException");
       return Left(ServerFailure());
+    }on JsonParserException{
+      print("JsonParserException");
+      return Left(ServerFailure());
+    }on Exception{
+       return Left(ServerFailure());
     }
   }
 }

@@ -1,5 +1,3 @@
-import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/blocs/cubit/number_trivia_bloc.dart';
-import 'package:clean_reso_coder_implementation/test/cubit/counter_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -12,23 +10,23 @@ import 'feature/numbertrivia/domain/repositories/number_trivia_repository.dart';
 import 'feature/numbertrivia/domain/usecases/get_concrete_number_trivia.dart';
 import 'feature/numbertrivia/domain/usecases/get_random_number_trivia.dart';
 import 'feature/numbertrivia/presentation/blocs/cubit/number_trivia_cubit.dart';
+import 'test/cubit/counter_cubit.dart';
 
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  
   sl.registerLazySingleton(
     () => NumberTriviaCubit(
       inputConverter: sl(),
       concrete: sl(),
       random: sl(),
     ),
-  ); 
+  );
 
   sl.registerLazySingleton(() => CounterCubit());
 
   // Bloc
- /*  sl.registerFactory(
+  /*  sl.registerFactory(
     () => NumberTriviaBloc(
       concrete: sl(),
       inputConverter: sl(),
@@ -61,4 +59,5 @@ Future<void> init() async {
   sl.registerLazySingleton(() => http.Client());
 
   // sl.registerSingleton<NumberTriviaState>(NumberTriviaInitial());
+
 }

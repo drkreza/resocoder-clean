@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:clean_reso_coder_implementation/core/errors/exceptions.dart';
+import 'package:clean_reso_coder_implementation/core/log/logger_service.dart';
+import 'package:get_it/get_it.dart';
 import 'package:http/http.dart%20';
 import 'package:http/http.dart' as http;
 
@@ -37,10 +39,23 @@ class NumberTriviaRemoteDataSourceImpl implements NumberTriviaRemoteDataSource {
       Uri.parse('http://numbersapi.com/random'),
       headers: {'Content-Type': 'application/json'},
     );
-    if (response.statusCode == 200) {
-      return NumberTriviaModel.fromJson(json.decode(response.body));
-    } else {
+    try {
+      if (response.statusCode == 200) {
+        return NumberTriviaModel.fromJson(json.decode(response.body));
+      } else {
+        // print('status : ' + response.statusCode.toString());
+        MyLog.log('MyError0', response.statusCode.toString());
+        throw ServerException();
+      }
+    } on ServerException {
+      MyLog.log('MyError1', "server");
       throw ServerException();
+    } on JsonParserException {
+      MyLog.log('MyError2', "json");
+      throw JsonParserException();
+    } on Exception {
+      MyLog.log('MyError3', "global");
+      throw Exception();
     }
   }
 }
