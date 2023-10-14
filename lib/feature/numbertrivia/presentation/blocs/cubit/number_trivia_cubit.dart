@@ -22,33 +22,50 @@ class NumberTriviaCubit extends Cubit<NumberTriviaState> {
       required this.random})
       : super(const NumberTriviaInitial());
 
-  void getTriviaForConcreteNumber(String number) {
+  Future<void> getTriviaForConcreteNumber(String number) async {
     emit(const NumberTriviaLoading());
     Either<Failure, int> inputEither =
         inputConverter.stringsToUnsignedInteger(number);
 
+    print("B1");
     inputEither.fold((failure) {
+      print("B2");
       emit(const NumberTriviaError(message: INVALID_INPUT_FAILURE_MESSAGE));
     }, (integer) async {
-      final failureOrTrivia =
-          await concrete.call(Params(number: integer));
+      print("B3");
+      final failureOrTrivia = await concrete.call(Params(number: integer));
+      print("B4");
       failureOrTrivia.fold((failure) {
+        print("B5 : " + failure.toString());
         emit(const NumberTriviaError(message: SERVER_FAILURE_MESSAGE));
       }, (trivia) {
+        print("B6");
         emit(NumberTriviaLoaded(trivia: trivia));
       });
     });
   }
 
-  void getTriviaForRandomNumber() async {
+  Future<void> getTriviaForRandomNumber() async {
+   /*  print("1");
     emit(const NumberTriviaLoading());
+    print("2");
+    await Future.delayed(Duration(seconds: 4));
+    print("3");
+    emit(NumberTriviaLoaded(trivia: NumberTriviaEntity(number: 2, text: "Reza")) );
+    print("4"); */
+     emit(const NumberTriviaLoading());
     final failureOrTrivia = await random.call(NoParams());
-    failureOrTrivia.fold((failure) {
+     print("3");
+    failureOrTrivia.fold(
+      (failure) {
+       print("3.1");
       emit(const NumberTriviaError(message: SERVER_FAILURE_MESSAGE));
-    }, (trivia) {
+       print("4");
+    },(trivia) {
+       print("5  : "+trivia.toString());
       emit(NumberTriviaLoaded(trivia: trivia));
-    });
+      print("5.2");
+    }); 
   }
 
-  
 }
