@@ -15,7 +15,7 @@ class AnotherPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('title'.tr),
-        leading: const BackButton(color: Colors.black),
+        leading: const BackButton(color: Colors.white),
       ),
       body: Center(
         child: Column(

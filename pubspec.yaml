@@ -20,6 +20,7 @@ dependencies:
   shared_preferences:
   internet_connection_checker: 
   get: 
+  stellar_flutter_sdk: 
 
 dev_dependencies:
   flutter_test:
