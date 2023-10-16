@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Material App Bar'),
         ),
-        body: MyTextField(),
+        body: MyFloadtingActionButton(),
       ),
     );
   }
