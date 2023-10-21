@@ -43,7 +43,6 @@ class SlideOutAnimationState extends State<SlideOutAnimation> {
             duration: _duration,
             right: _position,
             child: Container(
-              width: 200,
               height: 100,
               color: Colors.blue,
               child: const Center(
