@@ -44,7 +44,7 @@ class SlideOutAnimationState extends State<SlideOutAnimation> {
             right: _position,
             child: Container(
               height: 100,
-              color: Colors.blue,
+              color: Colors.red,
               child: const Center(
                 child: Text(
                   'Slide Out',
