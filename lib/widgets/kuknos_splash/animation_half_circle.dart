@@ -101,60 +101,73 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Stack(
-            children: [
-              AnimatedPositioned(
-                top: _top_position,
-                left: _top_position,
-                duration: _duration,
-                child: TopLeftQuarterCircle(
-                  diameter: 220.0, // Adjust the diameter as needed
-                  color: Colors.yellow,
-                ),
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color.fromRGBO(113,197,238,1),Color.fromRGBO(53,134,188,1),Color.fromRGBO(2,80,145,1)],
               ),
-              AnimatedPositioned(
-                left: _position,
-                top: 0,
-                bottom: 0,
-                duration: _lef_duration,
-                child: LeftHalfCircle(
-                  diameter: MediaQuery.of(context).size.height /
-                      2, // Adjust the diameter as needed
-                  color: Colors.blue,
+            ),
+            child: Stack(
+              children: [
+                AnimatedPositioned(
+                  top: _top_position,
+                  left: _top_position,
+                  duration: _duration,
+                  child: TopLeftQuarterCircle(
+                    diameter: 220.0, // Adjust the diameter as needed
+                    // color: const Color.fromRGBO(217, 217, 217, 0.08),
+                    color: const Color.fromRGBO(217, 217, 217, 0.08),
+                  ),
                 ),
-              ),
-              AnimatedPositioned(
-                right: _position,
-                duration: _duration,
-                child: CenterRightHalfCircle(
-                  width: 200.0,
-                  height: 470.0,
-                  color: Colors.red,
-                  topPadding: 70.0,
+                AnimatedPositioned(
+                  left: _position,
+                  top: 0,
+                  bottom: 0,
+                  duration: _lef_duration,
+                  child: LeftHalfCircle(
+                    diameter: (MediaQuery.of(context).size.height /2) - 35, // Adjust the diameter as needed
+                    color: const Color.fromRGBO(217, 217, 217, 0.08),
+                  ),
                 ),
-              ),
-              AnimatedPositioned(
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeInOut,
-                //  top: (MediaQuery.of(context).size.height - 100) / 2, // Center vertically
-                left: (MediaQuery.of(context).size.width - 100) /
-                    2, // Center horizontally
-                top: _condition
-                    ? 50
-                    : MediaQuery.of(context).size.height / 2 - 50,
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.blue,
-                  child: const Center(
-                    child: Text(
-                      'Tap me!',
-                      style: TextStyle(color: Colors.white),
+                AnimatedPositioned(
+                  right: _position,
+                  duration: _duration,
+                  child: CenterRightHalfCircle(
+                    width: 215.0,
+                    height: 490.0,
+                    color: const Color.fromRGBO(217, 217, 217, 0.08),
+                    topPadding: 70.0,
+                  ),
+                ),
+                AnimatedPositioned(
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeInOut,
+                  //  top: (MediaQuery.of(context).size.height - 100) / 2, // Center vertically
+                  left: (MediaQuery.of(context).size.width - 100) /
+                      2, // Center horizontally
+                  top: _condition
+                      ? 140
+                      : MediaQuery.of(context).size.height / 2 - 50,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.all(Radius.circular(50))
+                    ),
+                    width: 100,
+                    height: 100,
+                  
+                    child: const Center(
+                      child: Text(
+                        'Tap me!',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -174,7 +187,7 @@ class LeftHalfCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 30.0, bottom: 30.0),
+      margin: const EdgeInsets.only(top: 30.0, bottom: 30.0,right: 100),
       width: diameter,
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
