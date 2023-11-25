@@ -89,7 +89,7 @@ class _MyAppState extends State<MyApp> {
     });
 
     // Change the condition after 5 seconds
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 4), () {
       setState(() {
         _condition = true;
       });
