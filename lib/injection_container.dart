@@ -1,4 +1,5 @@
 import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/blocs/theme/theme_cubit.dart';
+import 'package:clean_reso_coder_implementation/watch_asset_value_in_app/place_holder_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -62,4 +63,6 @@ Future<void> init() async {
   // sl.registerSingleton<NumberTriviaState>(NumberTriviaInitial());
 
   sl.registerLazySingleton(() => ThemeCubit());
+
+  sl.registerLazySingleton(() => PlaceHolderCubit());
 }

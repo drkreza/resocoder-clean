@@ -4,6 +4,7 @@ import 'package:clean_reso_coder_implementation/core/localization/translations.d
 import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/blocs/theme/theme_cubit.dart';
 import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/pages/another_page.dart';
 import 'package:clean_reso_coder_implementation/test/my_widget.dart';
+import 'package:clean_reso_coder_implementation/watch_asset_value_in_app/place_holder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -40,14 +41,15 @@ class MyApp extends StatelessWidget {
             // home: NumberTriviaPage(),
             // home: MyWidget(),
             // home: AnotherPage(),
-            home: Center(
+            home:MyTestPlaceHolder(),
+          /*   home: Center(
               child: ElevatedButton(
                 onPressed: () {
                   RsaKeyHelper().generateKeyPairFromSeed();
                 },
                 child: Text('generate'),
               ),
-            ),
+            ) */
           );
         },
       ),
