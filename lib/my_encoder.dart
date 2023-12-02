@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import "package:pointycastle/export.dart";
 import "package:asn1lib/asn1lib.dart";
 
@@ -63,7 +65,7 @@ class RsaKeyHelper {
     return k.generateKeyPair();
   } */
 
-  void generateKeyPairFromSeed() {
+  void generateKeyPairFromSeed() async {
     // Replace this with your 4-digit PIN
     String pin = "1234";
 
@@ -149,6 +151,23 @@ class RsaKeyHelper {
     String decryptedText = utf8.decode(decryptedBytes);
 
     print("Decrypted Data: $decryptedText");
+
+    final aOptions = AndroidOptions(keyCipherAlgorithm: KeyCipherAlgorithm.RSA_ECB_PKCS1Padding);
+    final iOption = IOSOptions();
+
+    /* dynamic option = null;
+
+    // Create storage
+    if (Platform.isAndroid) {
+      option = aOptions;
+    } else if (Platform.isIOS) {
+      option = iOption;
+    } */
+    final storage = FlutterSecureStorage(aOptions: aOptions,iOptions: iOption);
+    await storage.write(key: 'reza', value: encryptedData);
+    await storage.read(
+      key: 'reza',
+    ).then((value) {print(value);});
   }
 
   String encodePublicKeyToPem(RSAPublicKey publicKey) {
