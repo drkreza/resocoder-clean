@@ -21,6 +21,7 @@ dependencies:
   internet_connection_checker:
   get:
   stellar_flutter_sdk:
+  asn1lib:
 
 dev_dependencies:
   flutter_test:

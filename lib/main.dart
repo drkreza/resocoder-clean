@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:clean_reso_coder_implementation/core/localization/translations.dart';
 import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/blocs/theme/theme_cubit.dart';
 import 'package:clean_reso_coder_implementation/feature/numbertrivia/presentation/pages/another_page.dart';
@@ -8,6 +10,11 @@ import 'package:get/get_navigation/get_navigation.dart';
 
 import 'feature/numbertrivia/presentation/pages/number_trivia_page.dart';
 import 'injection_container.dart' as di;
+
+import 'dart:typed_data';
+import 'package:pointycastle/export.dart';
+
+import 'my_encoder.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +39,15 @@ class MyApp extends StatelessWidget {
             theme: state,
             // home: NumberTriviaPage(),
             // home: MyWidget(),
-            home: AnotherPage(),
+            // home: AnotherPage(),
+            home: Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  RsaKeyHelper().generateKeyPairFromSeed();
+                },
+                child: Text('generate'),
+              ),
+            ),
           );
         },
       ),
