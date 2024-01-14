@@ -44,7 +44,7 @@ class AnotherPage extends StatelessWidget {
               bloc: bloccc,
               builder: (context, state) {
                 if (state is NumberTriviaInitial) {
-                  return const Text('Type something');
+                  return const Text('hi');
                 } else if (state is NumberTriviaLoading) {
                   return const Center(
                     child: CircularProgressIndicator(),

@@ -34,6 +34,7 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   Future<Either<Failure, NumberTriviaEntity>> getRandomNumberTrivia() async {
     try {
       final randomTrivia = await remoteDataSource.getRandomNumberTrivia();
+      print("responseeeeeeeeeeeeeee");
       return Right(randomTrivia);
     } on ServerException {
       print("ServerException");

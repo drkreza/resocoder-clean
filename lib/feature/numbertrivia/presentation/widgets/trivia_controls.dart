@@ -58,8 +58,9 @@ class _TriviaControlsState extends State<TriviaControls> {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
+                  dispatchRandom();
                   // bloc.getTriviaForRandomNumber();
-                  changeLocale();
+                  // changeLocale();
                 },
                 child: Text('hi'.tr),
               ),

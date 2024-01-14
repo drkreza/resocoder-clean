@@ -23,6 +23,7 @@ dependencies:
   stellar_flutter_sdk:
   asn1lib:
   flutter_secure_storage:
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

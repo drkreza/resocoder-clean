@@ -47,12 +47,17 @@ class NumberTriviaCubit extends Cubit<NumberTriviaState> {
     print("3");
     emit(NumberTriviaLoaded(trivia: NumberTriviaEntity(number: 2, text: "Reza")) );
     print("4"); */
+    print("A");
      emit(const NumberTriviaLoading());
+     print("B");
     final failureOrTrivia = await random.call(NoParams());
+    print("C");
     failureOrTrivia.fold(
       (failure) {
+        print("D");
       emit(const NumberTriviaError(message: SERVER_FAILURE_MESSAGE));
     },(trivia) {
+      print("E");
       emit(NumberTriviaLoaded(trivia: trivia));
     }); 
   }

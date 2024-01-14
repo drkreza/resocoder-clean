@@ -38,10 +38,10 @@ class MyApp extends StatelessWidget {
             fallbackLocale: const Locale('en', 'US'),
             title: 'Number Trivia',
             theme: state,
-            // home: NumberTriviaPage(),
+            home: NumberTriviaPage(),
             // home: MyWidget(),
             // home: AnotherPage(),
-            home:MyTestPlaceHolder(),
+            // home:MyTestPlaceHolder(),
           /*   home: Center(
               child: ElevatedButton(
                 onPressed: () {
