@@ -24,6 +24,10 @@ dependencies:
   asn1lib:
   flutter_secure_storage:
   shimmer: ^3.0.0
+  # pin_code_fields: 
+  local_auth: 
+  flutter_screen_lock: ^9.0.2
+
 
 dev_dependencies:
   flutter_test:
