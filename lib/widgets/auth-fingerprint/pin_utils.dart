@@ -5,11 +5,18 @@ import 'package:local_auth/local_auth.dart';
 import 'package:local_auth_android/local_auth_android.dart';
 import 'package:local_auth_ios/local_auth_ios.dart';
 
+/* 
+create a bool variable and when the showPinDialogWithConfirmation() completed successfully then set this variable true,
+ and check if this field is true,then call the showPinDialog() for future usecases.
+ */
+
 class PinUtils {
   late BuildContext context;
 
   PinUtils(this.context);
 
+
+  //a function that ask user to enter pin and confirm it,in this state user can not use fingerprint .
   void showPinDialogWithConfirmation() {
     screenLockCreate(
       title: const Text('لطفا یک رمز عددی برای کیف توکن خود انتخاب کنید'),
@@ -33,6 +40,8 @@ class PinUtils {
     );
   }
 
+
+  //a function that is called when the user has set his pin successfully,and now can use fingerprint or pin.
   void showPinDialog() {
     screenLockCreate(
       title: const Text('لطفا یک رمز عددی برای کیف توکن خود انتخاب کنید'),
@@ -90,9 +99,7 @@ Future<void> localAuth(BuildContext context) async {
         biometricSuccess: 'موفق',
         goToSettingsDescription: 'برو به تنطیمات',
       ),
-      IOSAuthMessages(
-        
-      ),
+      IOSAuthMessages(),
     ],
     options: const AuthenticationOptions(biometricOnly: true),
   );
